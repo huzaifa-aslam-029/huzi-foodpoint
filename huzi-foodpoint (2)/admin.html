@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"> -->
+    <title>Admin Dashboard Page</title>
+</head>
+
+<body style="background-color: #f7f7f7;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light cont-2" style="top: 0;" id="navbarShadow">
+        <div class="container-fluid nav">
+            <div class="Foodpanda-logo">
+                <img src="images/foodpanda-logo.png">
+                <a href='/'>food point</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a aria-current='page' class='nav-link' href='/'>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-disabled='true' class='nav-link' href='/menu.html' tabindex='-1'>Menu</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button class="btn main-btn" type="button" id="logoutBtn">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="admin-heading">
+            <h2 style="margin: 0;">Admin Dashboard</h2>
+            <div>
+                <button class="btn add-btn" id="addDishBtn" data-bs-toggle="modal" data-bs-target="#addDishModal"
+                    style="display: block; visibility: visible; min-width: 140px; height: 40px; padding: 8px 16px;">Add
+                    New Dish</button>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addDishModal" tabindex="-1" aria-labelledby="addDishModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addDishModalLabel">Add New Dish</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addDishForm">
+                            <div class="mb-3">
+                                <label for="dishName" class="form-label">Dish Name</label>
+                                <input type="text" class="form-control" id="dishName" placeholder="Enter dish name"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dishPrice" class="form-label">Price (PKR)</label>
+                                <input type="number" class="form-control" id="dishPrice" min="0"
+                                    placeholder="Enter price" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dishDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="dishDescription" rows="4"
+                                    placeholder="Enter description" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dishCategory" class="form-label">Category</label>
+                                <select class="form-control" id="dishCategory" required>
+                                    <option value="" disabled selected>Select Category</option>
+                                    <option value="Appetizer">Appetizer</option>
+                                    <option value="Main Course">Main Course</option>
+                                    <option value="Dessert">Dessert</option>
+                                    <option value="Beverage">Beverage</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dishImageUrl" class="form-label">Dish Image URL</label>
+                                <input type="url" class="form-control" id="dishImageUrl"
+                                    placeholder="https://example.com/image.jpg" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="saveDishBtn">Save Dish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="editDishModal" tabindex="-1" aria-labelledby="editDishModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editDishModalLabel">Edit Dish</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editDishForm">
+                            <input type="hidden" id="editDishId">
+                            <div class="mb-3">
+                                <label for="editDishName" class="form-label">Dish Name</label>
+                                <input type="text" class="form-control" id="editDishName" placeholder="Enter dish name"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editDishPrice" class="form-label">Price (PKR)</label>
+                                <input type="number" class="form-control" id="editDishPrice" min="0"
+                                    placeholder="Enter price" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editDishDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="editDishDescription" rows="4"
+                                    placeholder="Enter description" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editDishCategory" class="form-label">Category</label>
+                                <select class="form-control" id="editDishCategory" required>
+                                    <option value="Appetizer">Appetizer</option>
+                                    <option value="Main Course">Main Course</option>
+                                    <option value="Dessert">Dessert</option>
+                                    <option value="Beverage">Beverage</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editDishImageUrl" class="form-label">Dish Image URL</label>
+                                <input type="url" class="form-control" id="editDishImageUrl"
+                                    placeholder="https://example.com/image.jpg" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="updateDishBtn">Update Dish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dishesList" class="row mb-5"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="admin.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

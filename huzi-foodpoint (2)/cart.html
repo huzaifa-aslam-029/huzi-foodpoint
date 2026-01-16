@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <title>Cart</title>
+</head>
+
+<body style="background-color: #f7f7f7;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light cont-2" style="top: 0;" id="navbarShadow">
+        <div class="container-fluid nav">
+            <div class="Foodpanda-logo">
+                <img src="images/foodpanda-logo.png">
+                <a href="index.html">food point</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Dishes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cart.html">Cart</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button class="btn main-btn" type="button" id="logoutBtn">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4 cart-heading">
+        <div class="cart-head">
+            <h2>Your Cart</h2>
+            <div class="dish-cart">
+                <div class="cart-num show-Quantity">0</div>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <h3>Total: PKR <span id="cartTotal">0</span></h3>
+        </div>
+        <div id="cartList" class="row"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="cart.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
